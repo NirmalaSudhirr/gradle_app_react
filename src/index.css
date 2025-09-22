@@ -1,13 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F4F6F8;
+}
+
+/* Custom CSS for the grading app */
+.bg-bg-gray {
+  background-color: #F4F6F8;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.text-light-green {
+  color: #8BD39E;
+}
+
+.text-dark-green {
+  color: #2F8F51;
+}
+
+.bg-light-green {
+  background-color: #8BD39E;
+}
+
+.bg-dark-green {
+  background-color: #2F8F51;
+}
+
+.text-light-red {
+  color: #F39A9A;
+}
+
+.text-dark-red {
+  color: #B33A3A;
+}
+
+.bg-light-red {
+  background-color: #F39A9A;
+}
+
+.bg-dark-red {
+  background-color: #B33A3A;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Custom styles to match Flutter design */
+.font-inter {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Smooth transitions for better UX */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Custom button hover effects */
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom input focus styles */
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Custom card hover effects */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom progress bar animation */
+.progress-bar {
+  transition: width 0.6s ease;
+}
+
+/* Custom table row hover effects */
+.table tbody tr:hover {
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Custom scrollbar for the parts list */
+.table-responsive::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Ensure proper scrolling behavior */
+.table-responsive {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Additional styling to match exact design */
+.card {
+  border-radius: 8px !important;
+}
+
+.btn {
+  border-radius: 4px !important;
+}
+
+.form-control {
+  border-radius: 4px !important;
+}
+
+/* Ensure proper spacing and sizing */
+.table th, .table td {
+  border-top: none !important;
+}
+
+/* Table styling for better visibility */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead th {
+  border-bottom: 2px solid #1e7e34 !important;
+  border-right: 1px solid #28a745;
+}
+
+.table thead th:last-child {
+  border-right: none;
+}
+
+.table tbody td {
+  border-right: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table tbody td:last-child {
+  border-right: none;
+}
+
+.table thead th {
+  border-bottom: none !important;
+}
+
+/* Match exact font sizes and spacing */
+.font-inter {
+  font-weight: 400;
+}
+
+.fw-bold {
+  font-weight: 600 !important;
+}
+
+.fw-semibold {
+  font-weight: 500 !important;
+}
+
+/* Ensure proper background and spacing */
+body {
+  background-color: #f8f9fa !important;
+}
+
+/* Custom scrollbar for better UX */
+.table-responsive::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
