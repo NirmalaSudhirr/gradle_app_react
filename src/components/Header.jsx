@@ -1,10 +1,18 @@
 import React from "react";
 
+// use public folder image (no bundler import)
+const craftsmanSrc = (process.env.PUBLIC_URL || '') + '/images/craftsman_logp.jpeg';
+
 const Header = ({ isDesktop = false }) => {
   // Use rem and vw for better responsiveness
   const titleSize = isDesktop ? "2.8rem" : "2.2rem"; // ~45px / 36px
-  const logoSize = isDesktop ? "100px" : "80px"; // bigger than before
-  const subtitleSize = isDesktop ? "1.2rem" : "1rem"; // responsive text
+  const logoSize = isDesktop ? "100px" : "80px"; // left logo
+  const craftsmanSize = logoSize; // match left logo size
+  const craftsmanFallback =
+    'data:image/svg+xml;charset=utf-8,' +
+    encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="${parseInt(craftsmanSize)}" height="${parseInt(craftsmanSize)}"><rect width="100%" height="100%" fill="#f8f9fa"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#6c757d" font-size="12">Craftsman</text></svg>`
+    );
 
   return (
     <header className="w-100">
@@ -29,7 +37,6 @@ const Header = ({ isDesktop = false }) => {
               borderRadius: "8px",
             }}
           />
-
         </div>
 
         {/* Title */}
@@ -41,11 +48,27 @@ const Header = ({ isDesktop = false }) => {
             color: "#333",
           }}
         >
-          Grading App
+          Grading Application
         </h1>
 
-        {/* Right spacer for balance */}
-        <div style={{ width: logoSize }} />
+        {/* Right craftsman logo (responsive) */}
+        <div className="d-flex align-items-center">
+          <img
+            src={craftsmanSrc}
+            alt="Craftsman Logo"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = craftsmanFallback;
+            }}
+            style={{
+              width: craftsmanSize,
+              height: craftsmanSize,
+              objectFit: "contain",
+              marginLeft: "12px",
+              borderRadius: "8px",
+            }}
+          />
+        </div>
       </div>
 
       {/* Divider */}

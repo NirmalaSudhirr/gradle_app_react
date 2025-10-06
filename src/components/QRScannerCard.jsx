@@ -41,7 +41,7 @@ const QRScannerCard = ({
         }}
       >
         {/* QR Scanner header */}
-        <div className="d-flex align-items-center justify-content-center mb-4">
+        <div className="d-flex align-items-start justify-content-start mb-4">
           <i 
             className="text-muted me-2"
             style={{ 
@@ -58,6 +58,15 @@ const QRScannerCard = ({
             QR Scanner
           </h2>
         </div>
+        
+          <div 
+          className="w-100"
+          style={{ 
+            height: '1px',
+            backgroundColor: 'rgba(0, 0, 0, 0.12)',
+            marginBottom: isDesktop ? '32px' : '20px'
+          }}
+        />
         
         <div className="mb-3">
           <label 

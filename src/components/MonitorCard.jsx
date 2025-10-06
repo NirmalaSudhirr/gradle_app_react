@@ -1,4 +1,5 @@
 import React from 'react';
+import './MonitorCard.css'; // add this import
 
 const MonitorCard = ({ scannedCodes, partsMap, isDesktop = false }) => {
   if (scannedCodes.length === 0) {
@@ -6,9 +7,10 @@ const MonitorCard = ({ scannedCodes, partsMap, isDesktop = false }) => {
       <div 
         className="card h-100 d-flex flex-column align-items-center justify-content-start"
         style={{
-          backgroundColor: 'white',
-          border: 'none',
-          boxShadow: 'none'
+          backgroundColor: 'transparent', // keep transparent background
+          border: '1px solid #dee2e6',     // show neutral container border on load
+          borderRadius: '8px',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.06)'
         }}
       >
         <div className="d-flex align-items-center mb-4">
@@ -66,8 +68,8 @@ const MonitorCard = ({ scannedCodes, partsMap, isDesktop = false }) => {
     <div 
       className="card h-100 d-flex flex-column"
       style={{
-        backgroundColor: 'white',
-        border: '1px solidrgb(86, 97, 109)',
+      //  backgroundColor: 'white', // changed from 'red'
+        border: '1px solid #dee2e6', // neutral container border (was #56616d)
         borderRadius: '8px',
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
       }}
@@ -76,7 +78,8 @@ const MonitorCard = ({ scannedCodes, partsMap, isDesktop = false }) => {
         className="d-flex align-items-center justify-content-center"
         style={{
           padding: isDesktop ? '20px 24px' : '16px 20px',
-          borderBottom: '1px solid #e9ecef'
+          borderBottom: '1px solid #e9ecef',
+          borderTop: '1px solid #e9ecef' // add top border so header is visually separated
         }}
       >
         <i 
@@ -95,7 +98,7 @@ const MonitorCard = ({ scannedCodes, partsMap, isDesktop = false }) => {
           <span 
             className="px-3 py-1 rounded fw-bold text-white"
             style={{
-              backgroundColor: hasIssues ? '#dc3545' : '#28a745',
+              backgroundColor: hasIssues ? '#696061ff' : '#28a745',
               fontSize: isDesktop ? '12px' : '11px'
             }}
           >
@@ -105,80 +108,81 @@ const MonitorCard = ({ scannedCodes, partsMap, isDesktop = false }) => {
       </div>
       
       <div 
-        className="flex-grow-1"
+        className="flex-grow-1 p-3 monitor-card-body"
         style={{ 
+          backgroundColor: '#ffffff',   // make parts container white
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column'
         }}
       >
         <div 
-          className="table-responsive flex-grow-1"
+          className="table-responsive flex-grow-1 monitor-table-wrapper"
           style={{
+            /* wrapper overflow handled by CSS too; keep inline maxHeight for safety */
             overflowY: 'auto',
             maxHeight: '400px'
           }}
         >
-          <table className="table mb-0">
-            <thead 
-              style={{ 
-                backgroundColor: '#28a745',
-                position: 'sticky',
-                top: 0,
-                zIndex: 10
-              }}
-            >
-              <tr>
-                <th 
-                  className="text-white fw-bold font-inter"
-                  style={{ 
-                    fontSize: isDesktop ? '16px' : '14px',
-                    padding: '12px 16px',
-                    whiteSpace: 'nowrap',
-                    border: '1px solid #28a745',
-                    borderBottom: '2px solid #1e7e34'
-                  }}
-                >
-                  Character Name
-                </th>
-                <th 
-                  className="text-white fw-bold font-inter"
-                  style={{ 
-                    fontSize: isDesktop ? '16px' : '14px',
-                    padding: '12px 16px',
-                    whiteSpace: 'nowrap',
-                    border: '1px solid #28a745',
-                    borderBottom: '2px solid #1e7e34'
-                  }}
-                >
-                  Status
-                </th>
-                <th 
-                  className="text-white fw-bold font-inter"
-                  style={{ 
-                    fontSize: isDesktop ? '16px' : '14px',
-                    padding: '12px 16px',
-                    whiteSpace: 'nowrap',
-                    border: '1px solid #28a745',
-                    borderBottom: '2px solid #1e7e34'
-                  }}
-                >
-                  Date
-                </th>
-                <th 
-                  className="text-white fw-bold font-inter"
-                  style={{ 
-                    fontSize: isDesktop ? '16px' : '14px',
-                    padding: '12px 16px',
-                    whiteSpace: 'nowrap',
-                    border: '1px solid #28a745',
-                    borderBottom: '2px solid #1e7e34'
-                  }}
-                >
-                  Time
-                </th>
-              </tr>
-            </thead>
+          <table className="table mb-0 monitor-table">
+            <thead>
+              {/* header background and sticky rules handled in MonitorCard.css */}
+              
+  <tr>
+    <th 
+      className="fw-bold font-inter"
+      style={{ 
+        fontSize: isDesktop ? '16px' : '14px',
+        padding: '12px 16px',
+        whiteSpace: 'nowrap',
+        border: '1px solid #dee2e6',
+        borderBottom: '2px solid #ced4da',
+        color: '#000' // inline fallback; CSS file enforces color
+      }}
+    >
+      Character Name
+    </th>
+    <th 
+      className="fw-bold font-inter"
+      style={{ 
+        fontSize: isDesktop ? '16px' : '14px',
+        padding: '12px 16px',
+        whiteSpace: 'nowrap',
+        border: '1px solid #dee2e6',
+        borderBottom: '2px solid #ced4da',
+        color: '#000'
+      }}
+    >
+      Status
+    </th>
+    <th 
+      className="fw-bold font-inter"
+      style={{ 
+        fontSize: isDesktop ? '16px' : '14px',
+        padding: '12px 16px',
+        whiteSpace: 'nowrap',
+        border: '1px solid #dee2e6',
+        borderBottom: '2px solid #ced4da',
+        color: '#000'
+      }}
+    >
+      Date
+    </th>
+    <th 
+      className="fw-bold font-inter"
+      style={{ 
+        fontSize: isDesktop ? '16px' : '14px',
+        padding: '12px 16px',
+        whiteSpace: 'nowrap',
+        border: '1px solid #dee2e6',
+        borderBottom: '2px solid #ced4da',
+        color: '#000'
+      }}
+    >
+      Time
+    </th>
+  </tr>
+</thead>
             <tbody>
               {parts.map((part, index) => (
                 <tr key={index}>

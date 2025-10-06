@@ -54,7 +54,7 @@ function App() {
                   maxWidth: 'calc(60% - 12px)'
                 }}
               >
-                <MonitorCard 
+               <MonitorCard 
                   scannedCodes={scannedCodes} 
                   partsMap={partsMap} 
                   isDesktop={true} 

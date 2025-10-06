@@ -1,0 +1,56 @@
+/* Table container border + neutral header (remove green) */
+.monitor-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #dee2e6; /* table border */
+}
+
+/* make every cell have the same neutral border */
+.monitor-table th,
+.monitor-table td {
+  border: 1px solid #dee2e6;
+}
+
+/* neutral header background, sticky, black text */
+.monitor-table thead th {
+  background-color: #ffffff !important;
+  color: #000 !important;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Force the parts container and table area to be white */
+.monitor-card-body {
+  background: #ffffff !important;
+}
+
+/* Wrapper that provides scrolling */
+.monitor-table-wrapper {
+  background: #ffffff !important;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+/* Table and all cells should be white with neutral borders */
+.monitor-table,
+.monitor-table th,
+.monitor-table td {
+  background: #ffffff !important;
+  border: 1px solid #dee2e6 !important;
+  color: #000 !important;
+}
+
+/* Header should also be white and keep sticky behavior */
+.monitor-table thead th {
+  background-color: #ffffff !important;
+  color: #000 !important;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* keep custom scrollbar visible (optional) */
+.monitor-table-wrapper::-webkit-scrollbar { width: 12px; }
+.monitor-table-wrapper::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 8px; }
+.monitor-table-wrapper::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 8px; border: 3px solid #f1f1f1; }
